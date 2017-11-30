@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { BookService } from '../services/book.service';
 import { Router } from '@angular/router';
 declare var $:any;
@@ -9,6 +9,7 @@ declare var $:any;
 })
 export class CreateBookComponent implements OnInit {
   book={};
+  @Input('addBook') books:any;
   constructor(private bookService:BookService, private router:Router) { }
 
   ngOnInit() {
@@ -18,7 +19,7 @@ export class CreateBookComponent implements OnInit {
     this.bookService.createBook(this.book).subscribe((data) => {
       if(data.status==true){
         $("#addBook").modal("hide");
-        this.router.navigate(['/book']);
+        this.books.push(this.book);
       }else{
         alert('Not create book!');
       }

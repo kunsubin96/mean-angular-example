@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class BookComponent implements OnInit {
   books:any;
+  bookDetail:any;
+  bookEdit:any;
   constructor(private bookService:BookService,private router:Router) { }
 
   ngOnInit() {
@@ -22,10 +24,11 @@ export class BookComponent implements OnInit {
         alert(error);
       });
   }
-  deleteBook(id:any):any{
+  deleteBook(book:any, id:any):any{
     this.bookService.deleteBook(id).subscribe((data)=>{
       if(data.status==true){
-         this.ngOnInit();
+         var index=this.books.indexOf(book);
+         this.books.splice(index,1);
       }else{
          alert(data.data);
       }
@@ -33,5 +36,10 @@ export class BookComponent implements OnInit {
         alert(error);
     });
   }
-
+  showDetail(book){
+     this.bookDetail=book;
+  }
+  editBook(book){
+    this.bookEdit=book;
+  }
 }

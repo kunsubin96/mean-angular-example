@@ -22,9 +22,9 @@
                         <i class="fa fa-cog" aria-hidden="true"></i>
                     <span class="caret"></span></button>
                     <ul class="dropdown-menu">
-                      <li><a style="color: blue;" class="a-padding" href="#"><i class="fa fa-info fa-lg padding-fa1"></i>Info</a></li>
-                      <li><a style="color: blue;" class="a-padding" href="#"><i class="fa fa-pencil padding-fa3"></i>Edit</a></li>
-                      <li ><a style="color:red" (click)="deleteBook(book.isbn)" href="javascript:void(0)"><i class="fa fa-trash-o fa-lg padding-fa2"></i>Delete</a></li>
+                      <li><a style="color: blue;" (click)="showDetail(book)" class="a-padding" data-toggle="modal" data-target="#infoBook" href="javascript:void(0)"><i class="fa fa-info fa-lg padding-fa1"></i>Info</a></li>
+                      <li><a style="color: blue;" (click)="editBook(book)" class="a-padding" data-toggle="modal" data-target="#editBook"   href="javascript:void(0)"><i class="fa fa-pencil padding-fa3"></i>Edit</a></li>
+                      <li ><a style="color:red" (click)="deleteBook(book,book._id)" href="javascript:void(0)"><i class="fa fa-trash-o fa-lg padding-fa2"></i>Delete</a></li>
                     </ul>
               </div>
             </td>
@@ -32,7 +32,7 @@
     </tbody>
   </table>
 </div>
-  <!-- The Modal -->
+  <!-- The Modal add book -->
 <div class="modal fade" id="addBook">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -43,9 +43,43 @@
         </div>
         <!-- Modal body -->
         <div class="modal-body">
-            <app-create-book></app-create-book>
+            <app-create-book [addBook]='books'></app-create-book>
         </div>
         
+      </div>
+    </div>
+</div>
+ <!-- The Modal info book -->
+ <div class="modal fade" id="infoBook">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title"><i class="fa fa-info" aria-hidden="true"></i> Book Detail</h4>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <app-detail-book [bookDetail]='bookDetail'></app-detail-book>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- The Modal edit book -->
+  <div class="modal fade" id="editBook">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Edit Book</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+          <app-edit-book [bookEdit]='bookEdit'></app-edit-book>
+        </div> 
       </div>
     </div>
 </div>

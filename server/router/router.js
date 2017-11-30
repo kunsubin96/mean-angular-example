@@ -25,7 +25,7 @@ router.get('/books', function(req, res, next) {
 
 /* GET SINGLE BOOK BY ID */
 router.get('/books/:id', function(req, res, next) {
-  Book.findOne({isbn: req.params.id}, function (err, data) {
+  Book.findOne({_id: req.params.id}, function (err, data) {
     var response = {};
     if(err){
       response = { "status": false, "data": "Error fetching data!" };
@@ -52,8 +52,8 @@ router.post('/books', function(req, res, next) {
 });
 
 /* UPDATE BOOK */
-router.put('/books/:id', function(req, res, next) {
-  Book.findOneAndUpdate({isbn:req.params.id}, req.body, function (err, post) {
+router.put('/books', function(req, res, next) {
+  Book.findOneAndUpdate({_id:req.body._id}, req.body, function (err, post) {
     var response = {};
     if(err){
       response = { "status": false, "data": "Error update data!" };
@@ -67,7 +67,7 @@ router.put('/books/:id', function(req, res, next) {
 
 /* DELETE BOOK */
 router.delete('/books/:id', function(req, res, next) {
-  Book.findOneAndRemove({isbn:req.params.id}, req.body, function (err, post) {
+  Book.findOneAndRemove({_id:req.params.id}, req.body, function (err, post) {
     var response = {};
     if(err){
       response = { "status": false, "data": "Error delete data!" };

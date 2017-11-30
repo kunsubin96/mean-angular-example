@@ -18,8 +18,8 @@ export class BookService {
    createBook(data:any):any{
      return this.http.post(Api.CreateBook,data).map((res:Response)=>res.json());
    }
-   updateBook(id:any,data:any):any{
-    return this.http.put(Api.UpdateBook+'/'+id,data).map((res:Response)=>res.json());
+   updateBook(data:any):any{
+    return this.http.put(Api.UpdateBook+'/',data).map((res:Response)=>res.json());
    }
    deleteBook(id:any):any{
      return this.http.delete(Api.DeleteBook+'/'+id).map((res:Response)=>res.json());
