@@ -40,4 +40,13 @@ export class RegisterComponent implements OnInit {
        alert(error);
      });
   }
+  cancel(){
+    $( "#register" ).trigger( "click" );
+    this.usr={
+      username:"",
+      password:"",
+      firstname:"",
+      lastname:""
+    };
+  }
 }
