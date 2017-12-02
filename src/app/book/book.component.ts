@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 export class BookComponent implements OnInit {
   books:any;
   bookDetail:any;
-  bookEdit:any;
   constructor(private bookService:BookService,private router:Router) { }
 
   ngOnInit() {
@@ -40,6 +39,6 @@ export class BookComponent implements OnInit {
      this.bookDetail=book;
   }
   editBook(book){
-    this.bookEdit=book;
+    this.bookDetail=book;
   }
 }

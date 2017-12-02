@@ -12,19 +12,19 @@
       </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let book of books">
-            <td class="center-th">{{book.isbn}}</td>
-            <td>{{book.title}}</td>
-            <td >{{book.author}}</td>
+        <tr *ngFor="let item of books">
+            <td class="center-th">{{item.isbn}}</td>
+            <td>{{item.title}}</td>
+            <td >{{item.author}}</td>
             <td class="center-th">
                 <div class="dropdown">
                     <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">
                         <i class="fa fa-cog" aria-hidden="true"></i>
                     <span class="caret"></span></button>
                     <ul class="dropdown-menu">
-                      <li><a style="color: blue;" (click)="showDetail(book)" class="a-padding" data-toggle="modal" data-target="#infoBook" href="javascript:void(0)"><i class="fa fa-info fa-lg padding-fa1"></i>Info</a></li>
-                      <li><a style="color: blue;" (click)="editBook(book)" class="a-padding" data-toggle="modal" data-target="#editBook"   href="javascript:void(0)"><i class="fa fa-pencil padding-fa3"></i>Edit</a></li>
-                      <li ><a style="color:red" (click)="deleteBook(book,book._id)" href="javascript:void(0)"><i class="fa fa-trash-o fa-lg padding-fa2"></i>Delete</a></li>
+                      <li><a style="color: blue;" (click)="showDetail(item)" class="a-padding" data-toggle="modal" data-target="#infoBook" href="javascript:void(0)"><i class="fa fa-info fa-lg padding-fa1"></i>Info</a></li>
+                      <li><a style="color: blue;" (click)="editBook(item)" class="a-padding" data-toggle="modal" data-target="#editBook"   href="javascript:void(0)"><i class="fa fa-pencil padding-fa3"></i>Edit</a></li>
+                      <li ><a style="color:red" (click)="deleteBook(item,item._id)" href="javascript:void(0)"><i class="fa fa-trash-o fa-lg padding-fa2"></i>Delete</a></li>
                     </ul>
               </div>
             </td>
@@ -78,7 +78,7 @@
         </div>
         <!-- Modal body -->
         <div class="modal-body">
-          <app-edit-book [bookEdit]='bookEdit'></app-edit-book>
+          <app-edit-book [bookEdit]='bookDetail'></app-edit-book>
         </div> 
       </div>
     </div>

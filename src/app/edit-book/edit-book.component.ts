@@ -7,20 +7,21 @@ declare var $:any;
   styleUrls: ['./edit-book.component.css']
 })
 export class EditBookComponent implements OnInit {
-  modal = {
-    "header":"MODAL HEADER",
-    "text" : "MODAL TEXT"
-   };
-  book={title:""};
-  @Input('bookEdit') bookEdit:any;
-
+  @Input('bookEdit') book:any;
   constructor(private bookService:BookService) { }
 
   ngOnInit() {
-
+    
   }
   saveBook(){
-  
-    alert(this.book.title);
+    this.bookService.updateBook(this.book).subscribe((data) => {
+      if(data.status==true){
+        $("#editBook").modal("hide");
+      }else{
+        alert(data.data);
+      }
+    },(error)=>{
+      alert(error);
+    });
   }
 }
