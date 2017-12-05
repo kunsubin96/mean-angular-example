@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class BookComponent implements OnInit {
   books:any;
   bookDetail:any;
+  text_search:any;
   constructor(private bookService:BookService,private router:Router) { }
 
   ngOnInit() {
@@ -40,5 +41,8 @@ export class BookComponent implements OnInit {
   }
   editBook(book){
     this.bookDetail=book;
+  }
+  search(){
+    
   }
 }

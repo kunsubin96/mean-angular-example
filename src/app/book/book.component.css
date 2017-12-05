@@ -28,3 +28,11 @@ table{
 tbody{
     background: #DCDCDC;
 }
+#search-bar{
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    text-align: center;
+}

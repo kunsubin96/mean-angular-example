@@ -2,6 +2,14 @@
   <th class="col">
     <button class="btn btn-success" data-toggle="modal" data-target="#addBook">Add Book</button>
   </th>
+  <div id="search-bar" class="col-lg-6">
+    <div class="input-group">
+      <input type="text" [(ngModel)]="text_search" class="form-control" placeholder="Search for title...">
+      <span class="input-group-btn">
+          <button class="btn btn-outline-success my-2 my-sm-0" (click)="search()" type="submit">Search</button>
+      </span>
+    </div>
+  </div>
   <table class="table table-bordered">
     <thead class="thead-default">
       <tr>
@@ -12,7 +20,7 @@
       </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of books">
+        <tr *ngFor="let item of books|myfilter:text_search">
             <td class="center-th">{{item.isbn}}</td>
             <td>{{item.title}}</td>
             <td >{{item.author}}</td>

@@ -16,6 +16,7 @@ import { DetailBookComponent } from './detail-book/detail-book.component';
 import { EditBookComponent } from './edit-book/edit-book.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { MyFilterPipe } from './book/my_filter_piple';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { RegisterComponent } from './register/register.component';
     DetailBookComponent,
     EditBookComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MyFilterPipe
   ],
   imports: [
     BrowserModule,
