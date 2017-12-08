@@ -23,7 +23,7 @@ table{
     margin-right: 10px;
 }
 .thead-default{
-    background: #4682B4 !important;
+    background: #20B2AA !important;
 }
 tbody{
     background: #DCDCDC;
@@ -36,3 +36,4 @@ tbody{
     position: relative;
     text-align: center;
 }
+
