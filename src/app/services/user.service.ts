@@ -4,8 +4,9 @@ import {Api} from './api';
 @Injectable()
 export class UserService {
   currentUser:any;
-  constructor(private http:Http) { }
-
+  constructor(private http:Http) {
+      
+  }
   login(body:any):any{
     return this.http.post(Api.LoginUser,body).map((res:Response)=>{
       if(res.json().status==true){

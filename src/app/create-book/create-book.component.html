@@ -1,27 +1,31 @@
 
-        <form (ngSubmit)="saveBook()" #bookForm="ngForm">
+        <form (ngSubmit)="saveBook()" [formGroup]="bookForm">
           <div class="form-group">
             <label for="name">ISBN</label>
-            <input type="text" class="form-control" [(ngModel)]="book.isbn" name="isbn" required>
+            <input type="text" class="form-control"  name="isbn" required formControlName='isbn'>
           </div>
           <div class="form-group">
             <label for="name">Title</label>
-            <input type="text" class="form-control" [(ngModel)]="book.title" name="title" required>
+            <input type="text" class="form-control"  name="title" required formControlName='title'>
           </div>
           <div class="form-group">
             <label for="name">Author</label>
-            <input type="text" class="form-control" [(ngModel)]="book.author" name="author" required>
+            <input type="text" class="form-control"  name="author" required formControlName='author'>
           </div>
           <div class="form-group">
               <label for="name">Publisher</label>
-              <input type="text" class="form-control" [(ngModel)]="book.publisher" name="publisher" required>
+              <input type="text" class="form-control"  name="publisher" required formControlName='publisher'>
+          </div>
+          <div class="form-group">
+            <label for="name">Published Date</label>
+            <input type="date" class="form-control"  name="publisher" required formControlName='published_date'>
           </div>
           <div class="form-group">
             <label for="name">Price</label>
-            <input type="number" class="form-control" [(ngModel)]="book.price" name="price" required>
+            <input type="number" class="form-control"  name="price" required formControlName='price'>
           </div>
           <div class="form-group modal-footer">
-            <button type="submit" class="btn btn-success" [disabled]="!bookForm.form.valid">Save</button>
+            <button type="submit" class="btn btn-success" [disabled]="!bookForm.valid">Save</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
           </div>
         </form>

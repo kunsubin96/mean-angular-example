@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import {md5} from '../untils/md5';
@@ -19,8 +19,9 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
 
   }
-  login(){
-    this.user.password=md5(Config.encryptionMd5+this.user.password);
+  login(username,password){
+    this.user.username=username;
+    this.user.password=md5(Config.encryptionMd5+password);
     this.userService.login(this.user).subscribe((data) => {
         if(data.status==true){
           $("#login").modal("hide");
